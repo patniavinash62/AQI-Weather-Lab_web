@@ -16,3 +16,6 @@ Limitations & Future Scope Note: Built-in data is simulated (winter peaks, monso
 Roadmap: Real dataset & PostgreSQL integration, SciPy/R validation, ML/time-series forecasting (ARIMA, Random Forest), and live API feeds.
 
 Team (Dept. of Computer Science & Engineering) Patni Avinash Amarbhai Prajapati Het Rameshbhai Porwal Dhruvansh Chetankumar Prajapati Devang Jagdishbhai Prajapati Jayesh Prakashbhai
+
+
+live link= https://patniavinash62.github.io/AQI-Weather-Lab_web/
