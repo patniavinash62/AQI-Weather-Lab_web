@@ -1,0 +1,274 @@
+/* SVG Charts, Heatmaps, Missing-Data Strips, Code Blocks & ER Diagram */
+.chart {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible
+}
+
+.chart .grid {
+    stroke: var(--border);
+    stroke-width: 1
+}
+
+.chart .tick {
+    fill: var(--muted);
+    font-size: 11px
+}
+
+.chart .lbl {
+    fill: var(--muted);
+    font-size: 11.5px
+}
+
+.chart .bar {
+    animation: grow .8s cubic-bezier(.2, .8, .2, 1) both;
+    transition: opacity .2s
+}
+
+.chart .bar:hover {
+    opacity: .75
+}
+
+@keyframes grow {
+    from {
+        transform: scaleY(0)
+    }
+}
+
+.chart .cell {
+    animation: pop .5s both;
+    transform-box: fill-box;
+    transform-origin: center;
+    cursor: pointer;
+    transition: stroke .2s
+}
+
+.chart .cell:hover {
+    stroke: var(--text);
+    stroke-width: 2
+}
+
+@keyframes pop {
+    from {
+        opacity: 0;
+        transform: scale(.6)
+    }
+}
+
+.chart .draw {
+    fill: none;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw 1.8s ease forwards
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0
+    }
+}
+
+.chart .pt {
+    animation: fade .7s both
+}
+
+@keyframes fade {
+    from {
+        opacity: 0
+    }
+}
+
+.chart .box {
+    animation: grow .7s both
+}
+
+.legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-bottom: 8px
+}
+
+.legend i {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border-radius: 3px;
+    margin-right: 6px;
+    vertical-align: -1px
+}
+
+.scroll-x {
+    overflow-x: auto
+}
+
+.scroll-x>svg {
+    min-width: 560px
+}
+
+.hm {
+    display: grid;
+    gap: 6px
+}
+
+.hm .c {
+    padding: 14px 8px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 15px;
+    animation: pop .55s both;
+    transition: transform .2s
+}
+
+.hm .c:hover {
+    transform: scale(1.06)
+}
+
+.hm .c small {
+    display: block;
+    font-weight: 500;
+    font-size: 11px;
+    opacity: .85
+}
+
+.hm .h {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    align-self: end;
+    font-weight: 600
+}
+
+.hm .rl {
+    font-size: 13px;
+    font-weight: 600;
+    align-self: center
+}
+
+.strip {
+    display: grid;
+    grid-template-columns: 100px 1fr 140px;
+    gap: 12px;
+    align-items: center;
+    margin: 9px 0;
+    font-size: 13px
+}
+
+.strip svg {
+    width: 100%;
+    height: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    transform-origin: left;
+    animation: sx 1.1s cubic-bezier(.2, .8, .2, 1) both
+}
+
+@keyframes sx {
+    from {
+        transform: scaleX(0)
+    }
+}
+
+/* SQL Code & ER Diagram */
+.code {
+    position: relative;
+    background: var(--code);
+    color: #d6def5;
+    border-radius: 12px;
+    padding: 16px 18px;
+    font: 12.8px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    overflow: auto;
+    max-height: 430px;
+    border: 1px solid var(--border);
+    white-space: pre
+}
+
+.code .k {
+    color: #7dd3fc;
+    font-weight: 600
+}
+
+.code .c {
+    color: #6b7a9e;
+    font-style: italic
+}
+
+.code .s {
+    color: #86efac
+}
+
+.code .n {
+    color: #fbbf24
+}
+
+.copy {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 11.5px;
+    padding: 4px 10px;
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, .18);
+    background: rgba(255, 255, 255, .07);
+    color: #d6def5;
+    cursor: pointer
+}
+
+.er rect.b {
+    fill: var(--card-solid);
+    stroke: var(--border)
+}
+
+.er rect.h {
+    fill: color-mix(in srgb, var(--accent) 25%, var(--card-solid))
+}
+
+.er text {
+    fill: var(--text);
+    font-size: 12px;
+    font-family: ui-monospace, Menlo, monospace
+}
+
+.er text.t {
+    font-weight: 700;
+    font-size: 13px
+}
+
+.er text.m {
+    fill: var(--muted)
+}
+
+.er path,
+.er line {
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 1.6;
+    stroke-dasharray: 5 4;
+    animation: dash 1.5s linear infinite
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: -18
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    * {
+        animation: none !important;
+        transition: none !important
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none
+    }
+
+    .chart .draw {
+        stroke-dashoffset: 0
+    }
+}

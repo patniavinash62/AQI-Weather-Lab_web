@@ -1,0 +1,154 @@
+/* Theme variables, base reset, typography & grid layout */
+:root {
+    --bg: #0a0f1e;
+    --bg2: #0f1730;
+    --card: rgba(255, 255, 255, .045);
+    --card-solid: #121a33;
+    --border: rgba(255, 255, 255, .1);
+    --text: #e8ecf8;
+    --muted: #8f9bbd;
+    --accent: #2dd4bf;
+    --accent2: #818cf8;
+    --warn: #fbbf24;
+    --bad: #f87171;
+    --good: #4ade80;
+    --particle: 45, 212, 191;
+    --shadow: 0 10px 40px rgba(0, 0, 0, .35);
+    --code: #0a1022;
+    --glow: rgba(45, 212, 191, .18);
+}
+
+[data-theme=light] {
+    --bg: #f4f6fb;
+    --bg2: #e9eef8;
+    --card: rgba(255, 255, 255, .85);
+    --card-solid: #fff;
+    --border: rgba(15, 23, 42, .1);
+    --text: #0f172a;
+    --muted: #55627f;
+    --accent: #0d9488;
+    --accent2: #4f46e5;
+    --warn: #b45309;
+    --bad: #dc2626;
+    --good: #15803d;
+    --particle: 13, 148, 136;
+    --shadow: 0 10px 30px rgba(30, 41, 90, .12);
+    --code: #0f172a;
+    --glow: rgba(13, 148, 136, .15);
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 76px
+}
+
+body {
+    margin: 0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    transition: background .4s, color .4s;
+    background-image: radial-gradient(900px 500px at 85% -10%, var(--glow), transparent), radial-gradient(700px 400px at -10% 30%, rgba(129, 140, 248, .10), transparent);
+    background-attachment: fixed
+}
+
+#bg {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: .7
+}
+
+main,
+header,
+footer {
+    position: relative;
+    z-index: 1
+}
+
+.wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 22px
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    margin: 0
+}
+
+a {
+    color: var(--accent)
+}
+
+.muted {
+    color: var(--muted)
+}
+
+/* Grids & spacing */
+.grid2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px
+}
+
+.grid3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px
+}
+
+.grid4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px
+}
+
+.grid5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px
+}
+
+.stack>*+* {
+    margin-top: 18px
+}
+
+@media(max-width:980px) {
+    .grid2,
+    .grid3,
+    .grid4 {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .grid5 {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr !important
+    }
+}
+
+@media(max-width:640px) {
+    .grid2,
+    .grid3,
+    .grid4,
+    .grid5 {
+        grid-template-columns: 1fr
+    }
+
+    .brand span.t {
+        display: none
+    }
+}
